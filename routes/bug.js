@@ -4,6 +4,7 @@ var mongoose = require('mongoose');
 
 var Bug = require('../models/bug');
 
+//get home page
 router.get('/', async(req, res, next) => {
     try{
         const allBugs = await Bug.find();
