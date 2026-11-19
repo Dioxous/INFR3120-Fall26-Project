@@ -2,16 +2,24 @@
 
 <main class="container">
   <div class="row">
-    <div class="offset-md-1 col-md-10">
+    <div class="col-md-10 mx-auto">
       <h1>Reported Bugs</h1>
       <br>
       <table class="table table-bordered table-striped table-hover">
-        <tr class="d-flex">
+        <tr>
           <th class="text-center col-2">App Name</th>
           <th class="text-center col-2">Severity</th>
           <th class="text-center col-2">Bug Title</th>
           <th class="text-center col-4">Description</th>
         </tr>
+        <% for(let count = 0; count < allBugs.length; count++){ %>
+            <tr>
+              <td class="text-center col-2"><%= allBugs[count].appName %></td>
+              <td class="text-center col-2"><%= allBugs[count].severity %></td>
+              <td class="text-center col-2"><%= allBugs[count].title %></td>
+              <td class="text-center col-2"><%= allBugs[count].description %></td>
+            </tr>
+        <% } %>
       </table>
     </div>
   </div>
