@@ -4,8 +4,7 @@ let bugModel = mongoose.Schema({
     appName: String,
     severity: String,
     title: String,
-    description: String,
-    reproduction: String
+    description: String
 },
 {
     Collection: 'bugs'
