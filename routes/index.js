@@ -4,7 +4,7 @@ var mongoose = require('mongoose');
 
 var Bug = require('../models/bug');
 
-//get home page
+//read all database items and render home page
 router.get('/', async(req, res, next) => {
     try{
         const allBugs = await Bug.find();
@@ -15,7 +15,7 @@ router.get('/', async(req, res, next) => {
     }
     catch(err){
         console.log(err);
-        res.render('index', { error: 'Error on server' });
+        res.render('error', { error: 'Error on server' });
     }
 });
 
