@@ -20,7 +20,7 @@ router.get('/', async(req, res, next) => {
 });
 
 //create new database item
-router.post('/', async(req, res, next) => {
+router.post('/add', async(req, res, next) => {
     try{
         let newBug = Bug({
             "appName": req.body.appName,
