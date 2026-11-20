@@ -1,3 +1,37 @@
 <%- include('partials/header') %>
-
+<!--Form code from Bootstrap documentation-->
+    <div class="row justify-content-center mb-3">
+      <h1 class="text-white text-center mb-3">Report a Bug</h1>
+      <div class="col-lg-10">
+        <form class="row g-3 needs-validation justify-content-center" novalidate method="post" enctype="text/plain"> 
+          <div class="col-md-4">
+            <label for="inputAppName" class="form-label">App Name</label>
+            <input type="text" class="form-control" id="inputAppName" name="appName" required
+              placeholder="App/site where bug was found">
+          </div>
+          <div class="col-md-2">
+            <label for="inputSeverity" class="form-label">Severity</label>
+            <select class="form-select" id="inputSeverity" name="severity" required>
+              <option selected disabled value="">Choose...</option>
+              <option>High</option>
+              <option>Medium</option>
+              <option>Low</option>
+            </select>
+          </div>
+          <div class="col-md-4">
+            <label for="inputBugTitle" class="form-label">Bug Title</label>
+            <input type="text" class="form-control" id="inputBugTitle" name="title" required
+              placeholder="Brief description of bug">
+          </div>
+          <div class="col-md-10">
+            <label for="inputDescription" class="form-label">Description</label>
+            <textarea class="form-control" id="inputDescription" rows="5" name="description" required
+              placeholder="Detailed description of the bug"></textarea>
+          </div>
+          <div class="col-md-10">
+            <button class="btn btn-primary" type="submit">Submit form</button>
+          </div>
+        </form>
+      </div>
+    </div>
 <%- include('partials/footer') %>
