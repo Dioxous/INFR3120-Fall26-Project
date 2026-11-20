@@ -50,7 +50,7 @@ router.post('/add', async(req, res, next) => {
     }
 });
 
-//get update page
+//get edit page
 
 router.get('/edit/:id', async(req, res, next) => {
     try{
