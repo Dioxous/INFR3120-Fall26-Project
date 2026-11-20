@@ -19,4 +19,22 @@ router.get('/', async(req, res, next) => {
     }
 });
 
+//create new database item
+router.post('/', async(req, res, next) => {
+    try{
+        let newBug = Bug({
+            "appName": req.body.appName,
+            "severity": req.body.severity,
+            "title": req.body.title,
+            "description": req.body.description
+        })
+
+        Bug.create(newBug).then(() => {res.redirect('/')})
+    }
+    catch(err){
+        console.log(err);
+        res.render('error', { error: 'Error on server' });
+    }
+});
+
 module.exports = router;
