@@ -15,7 +15,10 @@ router.get('/', async(req, res, next) => {
     }
     catch(err){
         console.error(err);
-        res.render('error', { error: 'Error on server' });
+        res.render('error', {
+            error: 'Error on server',
+            title: 'Error'
+        });
     }
 });
 
@@ -28,7 +31,7 @@ router.get('/add', async(req, res, next) => {
     }
     catch(err){
         console.error(err);
-        res.render('error', { error: 'Error on server' });
+        res.render('error', {title: 'Error', error: 'Error on server'});
     }
 });
 
@@ -46,7 +49,10 @@ router.post('/add', async(req, res, next) => {
     }
     catch(err){
         console.error(err);
-        res.render('error', { error: 'Error on server' });
+        res.render('error', {
+            error: 'Error on server',
+            title: 'Error'
+        });
     }
 });
 
@@ -66,5 +72,7 @@ router.get('/edit/:id', async(req, res, next) => {
         next(err);
     }
 })
+
+
 
 module.exports = router;
