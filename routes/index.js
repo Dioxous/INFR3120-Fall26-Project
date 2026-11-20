@@ -14,7 +14,7 @@ router.get('/', async(req, res, next) => {
         });
     }
     catch(err){
-        console.log(err);
+        console.error(err);
         res.render('error', { error: 'Error on server' });
     }
 });
@@ -22,12 +22,12 @@ router.get('/', async(req, res, next) => {
 //get add page
 router.get('/add', async(req, res, next) => {
     try{
-        res.render('add', {
+        res.render('bugs/add', {
             title: 'Add',
         });
     }
     catch(err){
-        console.log(err);
+        console.error(err);
         res.render('error', { error: 'Error on server' });
     }
 });
@@ -40,14 +40,31 @@ router.post('/add', async(req, res, next) => {
             "severity": req.body.severity,
             "title": req.body.title,
             "description": req.body.description
-        })
+        });
 
-        Bug.create(newBug).then(() => {res.redirect('/')})
+        Bug.create(newBug).then(() => {res.redirect('/')});
     }
     catch(err){
-        console.log(err);
+        console.error(err);
         res.render('error', { error: 'Error on server' });
     }
 });
+
+//get update page
+
+router.get('/edit/:id', async(req, res, next) => {
+    try{
+        const id = req.params.id;
+        const bugEdit = await Bug.findById(id);
+        res.render('/bugs/edit', {
+            title: 'Edit',
+            Bug: bugEdit
+        });
+    }
+    catch(err){
+        console.error(err);
+        next(err);
+    }
+})
 
 module.exports = router;
