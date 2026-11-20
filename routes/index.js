@@ -19,6 +19,19 @@ router.get('/', async(req, res, next) => {
     }
 });
 
+//get add page
+router.get('/add', async(req, res, next) => {
+    try{
+        res.render('add', {
+            title: 'Add',
+        });
+    }
+    catch(err){
+        console.log(err);
+        res.render('error', { error: 'Error on server' });
+    }
+});
+
 //create new database item
 router.post('/add', async(req, res, next) => {
     try{
