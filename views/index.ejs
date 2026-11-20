@@ -21,6 +21,10 @@
               <td class="text-center col-2"><%= allBugs[count].severity %></td>
               <td class="text-center col-2"><%= allBugs[count].title %></td>
               <td class="text-center col-2"><%= allBugs[count].description %></td>
+              <td class="text-center col-1">
+                <a href="/bugs/edit/<%= allBugs[count]._id %>" class="btn btn-primary btn-sm">Edit</a>
+              </td>
+              <td class="text-center col-1"></td>
             </tr>
         <% } %>
       </table>
