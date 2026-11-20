@@ -12,8 +12,8 @@
           </div>
           <div class="col-md-2">
             <label for="inputSeverity" class="form-label">Severity</label>
-            <select class="form-select" id="inputSeverity" name="severity" value="<%= Bug.severity %> "required>
-              <option selected disabled value="">Choose...</option>
+            <select class="form-select" id="inputSeverity" name="severity" required>
+              <option selected disabled value=""><%= Bug.severity %></option>
               <option>High</option>
               <option>Medium</option>
               <option>Low</option>
@@ -26,8 +26,8 @@
           </div>
           <div class="col-md-10">
             <label for="inputDescription" class="form-label">Description</label>
-            <textarea class="form-control" id="inputDescription" rows="5" name="description" value="<%= Bug.description %>" required
-              placeholder="Detailed description of the bug"></textarea>
+            <textarea class="form-control" id="inputDescription" rows="5" name="description" required
+              placeholder="Detailed description of the bug"><%= Bug.description %></textarea>
           </div>
           <div class="col-md-10">
             <button class="btn btn-primary me-2" type="submit">Submit form</button>

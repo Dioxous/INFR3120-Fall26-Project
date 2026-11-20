@@ -23,9 +23,9 @@ router.get('/', async(req, res, next) => {
 });
 
 //get add page
-router.get('/add', async(req, res, next) => {
+router.get('/bugs/add', async(req, res, next) => {
     try{
-        res.render('/bugs/add', {
+        res.render('bugs/add', {
             title: 'Add',
         });
     }
@@ -36,7 +36,7 @@ router.get('/add', async(req, res, next) => {
 });
 
 //create new database item
-router.post('/add', async(req, res, next) => {
+router.post('/bugs/add', async(req, res, next) => {
     try{
         let newBug = Bug({
             "appName": req.body.appName,
@@ -57,7 +57,7 @@ router.post('/add', async(req, res, next) => {
 });
 
 //get edit page
-router.get('/edit/:id', async(req, res, next) => {
+router.get('/bugs/edit/:id', async(req, res, next) => {
     try{
         const id = req.params.id;
         const bugEdit = await Bug.findById(id);
