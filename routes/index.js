@@ -25,7 +25,7 @@ router.get('/', async(req, res, next) => {
 //get add page
 router.get('/add', async(req, res, next) => {
     try{
-        res.render('bugs/add', {
+        res.render('/bugs/add', {
             title: 'Add',
         });
     }
@@ -57,12 +57,11 @@ router.post('/add', async(req, res, next) => {
 });
 
 //get edit page
-
 router.get('/edit/:id', async(req, res, next) => {
     try{
         const id = req.params.id;
         const bugEdit = await Bug.findById(id);
-        res.render('/bugs/edit', {
+        res.render('bugs/edit', {
             title: 'Edit',
             Bug: bugEdit
         });
@@ -72,7 +71,5 @@ router.get('/edit/:id', async(req, res, next) => {
         next(err);
     }
 })
-
-
 
 module.exports = router;
