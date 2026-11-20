@@ -1,5 +1,7 @@
 <%- include('partials/header') %>
 <!--Form code from Bootstrap documentation-->
+
+<main>
     <div class="row justify-content-center mb-3">
       <h1 class="text-white text-center mb-3">Report a Bug</h1>
       <div class="col-lg-10">
@@ -34,4 +36,28 @@
         </form>
       </div>
     </div>
+</main>
+
+<script>
+    (function () {
+      'use strict'
+
+      // Fetch all the forms we want to apply custom Bootstrap validation styles to
+      var forms = document.querySelectorAll('.needs-validation')
+
+      // Loop over them and prevent submission
+      Array.prototype.slice.call(forms)
+        .forEach(function (form) {
+          form.addEventListener('submit', function (event) {
+            if (!form.checkValidity()) {
+              event.preventDefault()
+              event.stopPropagation()
+            }
+
+            form.classList.add('was-validated')
+          }, false)
+        })
+    })()
+</script>
+
 <%- include('partials/footer') %>
