@@ -72,4 +72,42 @@ router.get('/bugs/edit/:id', async(req, res, next) => {
     }
 })
 
+//update edited item
+router.post('/bugs/edit/:id', async(req, res, next) => {
+    try{
+        let id = req.params.id;
+        let bugUpdated = Bug({
+            "_id": id,
+            "appName": req.body.appName,
+            "severity": req.body.severity,
+            "title": req.body.title,
+            "description": req.body.description
+        })
+
+        Bug.findByIdAndUpdate(id, bugUpdated).then(() => {res.redirect('/')})
+    }
+    catch(err){
+        console.error(err);
+        res.render('error', {
+            error: 'Error on server',
+            title: 'Error'
+        });
+    }
+})
+
+//Delete item
+router.get('/bugs/delete/:id', async(req, res, next) => {
+    try{
+        let id = req.params.id;
+        Bug.deleteOne({_id:id}).then(() => {res.redirect('/')});
+    }
+    catch(err){
+        console.error(err);
+        res.render('error', {
+            error: 'Error on server',
+            title: 'Error'
+        });
+    }
+})
+
 module.exports = router;

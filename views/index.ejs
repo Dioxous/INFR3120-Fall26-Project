@@ -4,7 +4,7 @@
   <div class="row">
     <h1 class="text-center">Reported Bugs</h1>
     <div class="text-center">
-      <a type="button" href="/add" class="btn btn-primary btn-lg">Report a bug</a>
+      <a type="button" href="/bugs/add" class="btn btn-primary btn-lg">Report a bug</a>
     </div>
     <div class="col-md-10 mx-auto">
       <table class="table table-bordered table-striped table-hover">
@@ -14,17 +14,16 @@
           <th class="text-center col-2">Severity</th>
           <th class="text-center col-2">Bug Title</th>
           <th class="text-center col-4">Description</th>
+          <th class="text-center col-2">Actions</th>
         </tr>
         <% for(let count = 0; count < allBugs.length; count++){ %>
             <tr>
               <td class="text-center col-2"><%= allBugs[count].appName %></td>
               <td class="text-center col-2"><%= allBugs[count].severity %></td>
               <td class="text-center col-2"><%= allBugs[count].title %></td>
-              <td class="text-center col-2"><%= allBugs[count].description %></td>
-              <td class="text-center col-1">
+              <td class="text-center col-4"><%= allBugs[count].description %></td>
+              <td class="text-center col-2">
                 <a href="/bugs/edit/<%= allBugs[count]._id %>" class="btn btn-primary btn-sm">Edit</a>
-              </td>
-              <td class="text-center col-1">
                 <a href="/bugs/delete/<%= allBugs[count]._id %>" class="btn btn-danger btn-sm">Delete</a>
               </td>
             </tr>
